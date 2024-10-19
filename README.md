@@ -11,6 +11,22 @@ Next step is to make it a full fledged auth service.
 
 
 ## Enter the postgres running in the docker container
+## 0. Run using the SecurityApplication file in the IDE
+This only works in the dev envioronment.
+## 1. How to build and run using maven in mac terminal?
+
+### Build the Application Using Maven:
+Compile the application and package it into a JAR file using the Maven wrapper. This step will create the executable JAR file in the target directory.
+
+`./mvnw package`
+
+### Run the Application Locally:
+Execute the JAR file to start the Spring Boot application. It will listen on the port specified in your application.properties (8081 in this case).
+
+`java -jar target/security-0.0.1-SNAPSHOT.jar`
+
+
+## enter the postgres running in the docker container
 ### command format
 `docker exec -it <container_name> psql -U <username> -d <database_name>
 `
@@ -26,4 +42,3 @@ Next step is to make it a full fledged auth service.
 
 ### test with a simple query
 `select * from event;`
-
