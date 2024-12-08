@@ -1,4 +1,4 @@
-package security.event;
+package security.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

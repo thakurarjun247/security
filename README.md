@@ -8,7 +8,7 @@ Next step is to make it a full fledged auth service.
 ### post
 `curl -X POST -H "Content-Type: application/json" -d '{"name": "Another Event"}' http://localhost:8083/events
 `
-
+### for windows the format might be defferent.
 
 ## Enter the postgres running in the docker container
 ## 0. Run using the SecurityApplication file in the IDE

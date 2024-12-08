@@ -1,5 +1,7 @@
-package security.event;
+package security.controllers;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -8,8 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
-import security.event.Event;
-import security.event.EventRepository;
+import security.entity.Event;
+import security.repository.EventRepository;
 
 import java.util.List;
 
@@ -25,6 +27,17 @@ public class Controller {
     public List<Event> getAllEvents() {
         return eventRepository.findAll();
     }
+
+    // Endpoint to fetch paginated events
+    @GetMapping("/paginated")
+    public Page<Event> getPaginatedEvents(
+            @RequestParam(defaultValue = "0") int page, // Default to page 0
+            @RequestParam(defaultValue = "10") int size // Default to 10 items per page
+    ) {
+        return eventRepository.findAll(PageRequest.of(page, size));
+    }
+
+
 
     // Save a new event
     @PostMapping
