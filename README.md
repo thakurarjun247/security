@@ -5,8 +5,12 @@ Next step is to make it a full fledged auth service.
 ### get
 `curl localhost:8083/events
 `
-### post
+### post on mac
 `curl -X POST -H "Content-Type: application/json" -d '{"name": "Another Event"}' http://localhost:8083/events
+`
+
+### post on windows cmd
+`curl -Method POST -Uri http://localhost:8083/events -Headers @{ "Content-Type" = "application/json" } -Body '{"name": "Another Event"}'
 `
 ### for windows the format might be defferent.
 

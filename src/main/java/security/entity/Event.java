@@ -16,6 +16,7 @@ public class Event {
         this.id = id;
         this.name = name;
     }
+
     public Event() {
 
     }
