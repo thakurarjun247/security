@@ -1,12 +1,12 @@
 package security.controllers;
 
-import security.exceptionhandling.EventNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 import security.entity.Event;
+import security.exceptionhandling.EventNotFoundException;
 import security.services.EventService;
 
 import java.util.List;
@@ -44,11 +44,12 @@ public class Controller {
         Event savedEvent = eventService.save(event);
         return ResponseEntity.ok(savedEvent);
     }
+
     @GetMapping("/{eventId}")
-    public Event getEventById(@PathVariable("eventId") Integer eventId){
-        Optional<Event> event=eventService.findById(eventId);
+    public Event getEventById(@PathVariable("eventId") Integer eventId) {
+        Optional<Event> event = eventService.findById(eventId);
         if (!event.isPresent())
-            throw new EventNotFoundException("can't find event with id "+eventId);
+            throw new EventNotFoundException("can't find event with id " + eventId);
         return event.get();
     }
 

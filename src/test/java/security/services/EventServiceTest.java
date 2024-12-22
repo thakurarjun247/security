@@ -6,9 +6,6 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.transaction.annotation.Isolation;
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
 import security.entity.Event;
 import security.repository.EventRepository;
 
@@ -23,11 +20,11 @@ public class EventServiceTest {
     private EventServiceImpl eventServiceImpl;
 
     @Test
-    @Transactional(propagation = Propagation.REQUIRES_NEW, isolation = Isolation.DEFAULT)
-    public  void shouldSaveEventAndReturn(){
-        Event eventToSave=new Event(1, "my event");
+    public void shouldSaveEventAndReturn() {
+        Event eventToSave = new Event(11, "my event");
         when(eventRepository.save(eventToSave)).thenReturn(eventToSave);
         Event savedEvent = eventServiceImpl.save(eventToSave);
+        System.out.println(eventToSave.getName() == savedEvent.getName());
         Assertions.assertEquals(eventToSave.getName(), savedEvent.getName());
     }
 
