@@ -10,12 +10,14 @@ import java.util.List;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-public class UserServiceTestUsingMocks {
-    private final Long GMAIL_USER_COUNT=6l;
+public class _2UserServiceTestUsingMocks {
+    private final Long GMAIL_USER_COUNT = 6l;
+
     @Test
-    public void shouldFilterGmailUsersAndVerifyCountUsingMock(){
+    public void shouldFilterGmailUsersAndVerifyCountUsingMock() {
         UserRepository userRepositoryMock = mock(UserRepository.class);
-        when(userRepositoryMock.findAll()).thenReturn( List.of(
+        when(userRepositoryMock.findAll())
+                .thenReturn(List.of(
                 //gmail
                 new User("arjun", "arjun@gmail.com"),
                 new User("yuvan", "yuvan@gmail.com"),
@@ -37,7 +39,7 @@ public class UserServiceTestUsingMocks {
                 //company
                 new User("vivek", "vivek@company.com")
         ));
-        UserService userService= new UserServiceImpl(userRepositoryMock);
+        UserService userService = new UserServiceImpl(userRepositoryMock);
         //this is what we used in stub, but here the framework does it for us.
         //UserService userService=new UserServiceImpl(new StubUserRepositoryImpl());
         Assertions.assertEquals(GMAIL_USER_COUNT, userService.gmailUserCount());

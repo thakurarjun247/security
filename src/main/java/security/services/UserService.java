@@ -3,10 +3,14 @@ package security.services;
 import security.entity.User;
 
 public interface UserService {
-    User findByName(String name);
-    Integer xmailUserCount();
+    //method under test
 
     Long gmailUserCount();
+
+    //other methods, not in use
+    User findByName(String name);
+
+    Integer xmailUserCount();
 
 
 }

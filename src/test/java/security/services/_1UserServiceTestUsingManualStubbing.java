@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import security.repository.StubUserRepositoryImpl;
 
-public class UserServiceTestUsingManualStubbing {
+public class _1UserServiceTestUsingManualStubbing {
     private final Long GMAIL_USER_COUNT=6l;
     @Test
     public void shouldFilterGmailUsersAndVerifyCount(){

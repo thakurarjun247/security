@@ -1,12 +1,15 @@
 package security.entity;
 
-import org.springframework.scheduling.support.SimpleTriggerContext;
-
 public class User {
     String name;
     String email;
 
     public User() {
+    }
+
+    public User(String name, String email) {
+        this.name = name;
+        this.email = email;
     }
 
     public String getName() {
@@ -22,11 +25,6 @@ public class User {
     }
 
     public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public User(String name, String email) {
-        this.name = name;
         this.email = email;
     }
 }
