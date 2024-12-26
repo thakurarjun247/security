@@ -33,11 +33,31 @@ public class StubUserRepositoryImpl implements UserRepository {
 
     }
 
+    //todo
+    //as we don't care about stub anymore so the following
+    //methods are just the dummy placeholders.
+    //stubs were useful only for the first method, where we actually used a stub
+
     @Override
     public User findByName(String name) {
         return findAll()
                 .stream().filter(user -> user.getName().equals(name))
                 .collect(Collectors.toList())
                 .getFirst();
+    }
+
+    @Override
+    public void deleteByName(String name) {
+
+    }
+
+    @Override
+    public void saveAll(List<User> users) {
+
+    }
+
+    @Override
+    public void saveUser(User user) {
+
     }
 }

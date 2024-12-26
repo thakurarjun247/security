@@ -8,4 +8,11 @@ public interface UserRepository {
     List<User> findAll();
 
     User findByName(String name);
+
+
+    void deleteByName(String name);
+
+    void saveAll(List<User> users);
+
+    void saveUser(User user);
 }
