@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
+import org.mockito.InOrder;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -72,5 +73,20 @@ public class _5ArgumentCaptor {
         Assertions.assertEquals("yuvan", allValues.get(2));
     }
 
+    @Test
+    public void testMethodInvocationOrder() {
+        // Arrange
+        User user = new User("arjun", "arjun@gmail.com");
+
+        // Act
+        userServiceImpl.findByName("arjun");  // first method
+        userServiceImpl.deleteUser("arjun"); //seond method
+
+        // Assert
+        InOrder inOrder = inOrder(userRepository);
+        inOrder.verify(userRepository).findByName("arjun");  // Verify findByName is called first
+        inOrder.verify(userRepository).deleteByName("arjun");  // Verify deletebyname is called second
+
+    }
 
 }
