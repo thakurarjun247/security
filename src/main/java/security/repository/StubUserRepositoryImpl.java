@@ -3,6 +3,7 @@ package security.repository;
 import security.entity.User;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class StubUserRepositoryImpl implements UserRepository {
     @Override
@@ -30,5 +31,13 @@ public class StubUserRepositoryImpl implements UserRepository {
                 new User("vivek", "vivek@company.com")
         );
 
+    }
+
+    @Override
+    public User findByName(String name) {
+        return findAll()
+                .stream().filter(user -> user.getName().equals(name))
+                .collect(Collectors.toList())
+                .getFirst();
     }
 }
