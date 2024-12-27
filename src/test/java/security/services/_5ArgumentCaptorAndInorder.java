@@ -16,7 +16,7 @@ import java.util.List;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-public class _5ArgumentCaptor {
+public class _5ArgumentCaptorAndInorder {
 
     @Mock
     UserRepository userRepository;

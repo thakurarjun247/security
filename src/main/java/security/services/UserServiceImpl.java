@@ -65,4 +65,17 @@ public class UserServiceImpl implements UserService {
     public Integer xmailUserCount() {
         return null;
     }
+
+    @Override
+    public String reverseUserName(String userName) {
+
+        if (userName==null || userName.length()<2)
+            return userName;
+        StringBuilder builder= new StringBuilder();
+        for(int i=userName.length()-1;i>=0;i--){
+           builder.append(userName.charAt(i));
+
+        }
+        return builder.toString();
+    }
 }

@@ -24,4 +24,5 @@ public interface UserService {
     Integer xmailUserCount();
 
 
+    String reverseUserName(String userName);
 }
