@@ -2,8 +2,7 @@ package security.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
-import org.springframework.boot.autoconfigure.amqp.RabbitConnectionDetails;
-import org.w3c.dom.stylesheets.LinkStyle;
+
 
 import java.util.List;
 
