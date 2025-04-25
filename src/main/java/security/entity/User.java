@@ -1,6 +1,11 @@
 package security.entity;
 
+import org.springframework.context.annotation.Bean;
+
+
 public class User {
+
+
     String name;
     String email;
 

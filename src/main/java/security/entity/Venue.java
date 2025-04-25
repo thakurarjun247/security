@@ -7,18 +7,21 @@ import jakarta.validation.constraints.NotEmpty;
 import java.util.List;
 
 @Entity()
+
 public class Venue {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer id;
 
     @NotEmpty
+    @Column
     private String name;
 
     @Embedded
     private Address address;
 
-    @OneToMany(cascade = CascadeType.ALL)
+   @OneToMany(fetch = FetchType.EAGER)
+
     private List<Event> events;
 
 

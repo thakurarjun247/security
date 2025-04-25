@@ -1,9 +1,14 @@
 package security.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.context.annotation.Bean;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 import security.entity.Event;
 import security.repository.EventRepository;
 
@@ -27,9 +32,18 @@ public class EventServiceImpl implements EventService {
         return eventRepository.findAll(PageRequest.of(page, size));
     }
 
+//    @Transactional(propagation = Propagation, isolation = Isolation.DEFAULT )
+//    public void confirmEvent(){
+//
+//    }
+
+
+
     @Override
     public Optional<Event> findById(Integer eventId) {
-        return eventRepository.findById(eventId);
+
+         Optional<Event> optionalEvent=eventRepository.findById(eventId);
+         return  optionalEvent;
     }
 
     @Override

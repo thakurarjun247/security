@@ -24,6 +24,13 @@ public class _5ArgumentCaptorAndInorder {
     @InjectMocks
     UserServiceImpl userServiceImpl;
 
+//    @Test
+//    void simple(){
+//        var sac=ArgumentCaptor.forClass(String.class);
+//        verify(userRepository).findByName(sac.capture());
+//        sac.getAllValues();
+//    }
+
     @Test
     public void testFindByNameWithArgumentCaptor(){
         when(userRepository.findByName("yuvan"))

@@ -5,11 +5,15 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
+
+
 @ControllerAdvice
 public class GlobalExceptionHandler {
     GlobalExceptionHandler() {
         System.out.println("GlobalExceptionHandler constructed" + GlobalExceptionHandler.class);
     }
+
+
 
     @ExceptionHandler(EventNotFoundException.class)
     public ResponseEntity<String> handleEventNotFoundException(EventNotFoundException exception) {

@@ -1,6 +1,6 @@
 # Security Microservice
 So far it has crud operations on an entity, it uses spring web, jpa, postgres. The postgres runs in a docker container.
-Next step is to make it a full fledged auth service.
+Next step is to make it a full fledged service.
 ## CURL Commands
 ### get
 `curl localhost:8083/events
